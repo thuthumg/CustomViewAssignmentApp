@@ -1,112 +1,483 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@color/colorPrimary"
-tools:context=".activities.MainActivity">
-
-<com.google.android.material.appbar.AppBarLayout
-    app:elevation="0dp"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@color/colorPrimaryDark">
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolBar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:title="OMP Dashboard"
-        app:titleTextColor="@color/action_bar_title_color" >
-        <com.google.android.material.button.MaterialButton
-            android:layout_margin="@dimen/margin_small"
-            app:cornerRadius="@dimen/margin_medium"
-            app:backgroundTint="@color/in_progress_button_bg_color"
-            android:textColor="@color/white"
-            android:layout_gravity="end"
-            android:textAllCaps="false"
-            android:text="In Progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.appbar.MaterialToolbar>
-</com.google.android.material.appbar.AppBarLayout>
-
-<LinearLayout
-    android:background="@color/white"
-    android:layout_margin="@dimen/margin_small"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+    android:background="@color/colorPrimary"
+    tools:context=".activities.MainActivity">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_marginStart="@dimen/margin_medium"
-        android:text="Create additional \npages"
-        android:textStyle="bold"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/main_screen_page_title_color"
-        android:textSize="@dimen/text_heading_1x"/>
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:text="03 days | Dec 18, 2019"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/main_screen_page_sub_title_color"
-        android:textSize="@dimen/text_small"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:title="OMP Dashboard"
+            app:titleTextColor="@color/action_bar_title_color">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/margin_small"
+                android:text="In Progress"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/in_progress_button_bg_color"
+                app:cornerRadius="@dimen/margin_medium" />
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        android:layout_marginTop="@dimen/margin_medium"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_gravity="center_vertical"
-            android:clipToPadding="false"
-            android:id="@+id/rvProfileImageList"
-            tools:orientation="horizontal"
-            tools:itemCount="4"
-            tools:listitem="@layout/view_holder_profile_image"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-
-        <com.padcmyanmar.ttm.customviewassignmentapp.views.components.CustomCircularProgressView
-           android:layout_gravity="center_vertical"
-            app:progress="85"
-            android:id="@+id/circularProgressBar"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            app:strokeWidthDimension="2dp"
-            app:progressColor="@color/in_progress_button_bg_color"
-            app:backgroundColor="@color/in_progress_circle_bg_color"
-            app:backgroundWidth="5"
-            app:textSize="10sp"
-            app:roundedCorners="true"
-            app:suffix="%"
-            app:prefix=""
-            app:progressText="85"
-            app:maxValue="100"
-            app:progressTextColor="@color/in_progress_button_bg_color"/>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="@dimen/margin_medium"
-        android:background="@drawable/task_list_segment_bg"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_small"
+        android:background="@color/white"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="Create additional \npages"
+            android:textColor="@color/main_screen_page_title_color"
+            android:textSize="@dimen/text_heading_1x"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="03 days | Dec 18, 2019"
+            android:textColor="@color/main_screen_page_sub_title_color"
+            android:textSize="@dimen/text_small"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProfileImageList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                tools:itemCount="4"
+                tools:listitem="@layout/view_holder_profile_image"
+                tools:orientation="horizontal" />
+
+            <com.padcmyanmar.ttm.customviewassignmentapp.views.components.CustomCircularProgressView
+                android:id="@+id/circularProgressBar"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_vertical"
+                app:backgroundColor="@color/in_progress_circle_bg_color"
+                app:backgroundWidth="5"
+                app:maxValue="100"
+                app:prefix=""
+                app:progress="85"
+                app:progressColor="@color/in_progress_button_bg_color"
+                app:progressText="85"
+                app:progressTextColor="@color/in_progress_button_bg_color"
+                app:roundedCorners="true"
+                app:strokeWidthDimension="2dp"
+                app:suffix="%"
+                app:textSize="10sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@drawable/task_list_segment_bg"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:descendantFocusability="blocksDescendants"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:textColor="@color/main_screen_page_task_list_title_color"
+                            android:textStyle="bold"
+                            android:layout_margin="@dimen/margin_medium"
+                            android:text="Data"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+
+                        <RelativeLayout
+
+                            android:layout_marginLeft="@dimen/spacing_middle"
+                            android:layout_marginRight="@dimen/spacing_middle"
+                            android:layout_marginBottom="@dimen/spacing_medium"
+                            android:visibility="visible"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:textColor="@color/main_screen_page_task_list_title_color"
+                                android:textStyle="bold"
+                                android:layout_margin="@dimen/margin_medium"
+                                android:layout_alignParentStart="true"
+                                android:id="@+id/lblTasks"
+                                android:text="Tasks"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_margin="@dimen/margin_medium"
+                                android:layout_toStartOf="@id/ivShowInDaysArrow"
+                                android:textColor="@color/main_screen_page_task_list_title_color"
+                                android:textStyle="bold"
+                                android:id="@+id/lblShowInDays"
+                                android:text="Show in days"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_margin="@dimen/margin_medium"
+                                android:layout_alignParentEnd="true"
+                                android:id="@+id/ivShowInDaysArrow"
+                                android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_marginTop="-8dp"
+                            android:layout_gravity="center"
+                            android:text="12.23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/spacing_small"
+                            android:layout_marginLeft="@dimen/spacing_small"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:background="@color/whiteDark10" />
+
+                            <ImageView
+                                android:layout_width="@dimen/spacing_middle"
+                                android:layout_height="@dimen/spacing_middle"
+                                android:layout_marginTop="@dimen/spacing_large"
+                                app:srcCompat="@drawable/shape_round_solid"
+                                app:tint="#9CCC65" />
+
+                        </RelativeLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/spacing_middle"
+                            android:layout_marginTop="@dimen/spacing_middle"
+                            android:layout_marginRight="@dimen/spacing_middle"
+                            android:layout_marginBottom="@dimen/spacing_medium"
+                            android:visibility="visible"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/spacing_large"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:layout_marginRight="@dimen/spacing_large"
+                                    android:layout_marginBottom="@dimen/spacing_medium"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:text="Taylor W "
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                        android:textColor="#000"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_marginTop="-8dp"
+                            android:layout_gravity="center"
+                            android:text="12.23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/spacing_small"
+                            android:layout_marginLeft="@dimen/spacing_small"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:background="@color/whiteDark10" />
+
+                            <ImageView
+                                android:layout_width="@dimen/spacing_middle"
+                                android:layout_height="@dimen/spacing_middle"
+                                android:layout_marginTop="@dimen/spacing_large"
+                                app:srcCompat="@drawable/shape_round_solid"
+                                app:tint="#29B6F6" />
+
+                        </RelativeLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/spacing_middle"
+                            android:layout_marginTop="@dimen/spacing_middle"
+                            android:layout_marginRight="@dimen/spacing_middle"
+                            android:layout_marginBottom="@dimen/spacing_medium"
+                            android:visibility="visible"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/spacing_large"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:layout_marginRight="@dimen/spacing_large"
+                                    android:layout_marginBottom="@dimen/spacing_medium"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:text="Taylor W "
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                        android:textColor="#000"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_marginTop="-8dp"
+                            android:layout_gravity="center"
+                            android:text="12.23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/spacing_small"
+                            android:layout_marginLeft="@dimen/spacing_small"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:background="@color/whiteDark10" />
+
+                            <ImageView
+                                android:layout_width="@dimen/spacing_middle"
+                                android:layout_height="@dimen/spacing_middle"
+                                android:layout_marginTop="@dimen/spacing_large"
+                                app:srcCompat="@drawable/shape_round_solid"
+                                app:tint="#FF4081" />
+
+                        </RelativeLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/spacing_middle"
+                            android:layout_marginTop="@dimen/spacing_middle"
+                            android:layout_marginRight="@dimen/spacing_middle"
+                            android:layout_marginBottom="@dimen/spacing_medium"
+                            android:visibility="visible"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/spacing_large"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:layout_marginRight="@dimen/spacing_large"
+                                    android:layout_marginBottom="@dimen/spacing_medium"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:text="Taylor W "
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                        android:textColor="#000"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_marginTop="-8dp"
+                            android:layout_gravity="center"
+                            android:text="12.23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/spacing_small"
+                            android:layout_marginLeft="@dimen/spacing_small"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:background="@color/whiteDark10" />
+
+                            <ImageView
+                                android:layout_width="@dimen/spacing_middle"
+                                android:layout_height="@dimen/spacing_middle"
+                                android:layout_marginTop="@dimen/spacing_large"
+                                app:srcCompat="@drawable/shape_round_solid"
+                                app:tint="#F57F17" />
+
+                        </RelativeLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/spacing_middle"
+                            android:layout_marginTop="@dimen/spacing_middle"
+                            android:layout_marginRight="@dimen/spacing_middle"
+                            android:layout_marginBottom="@dimen/spacing_medium"
+                            android:visibility="visible"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/spacing_large"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:layout_marginRight="@dimen/spacing_large"
+                                    android:layout_marginBottom="@dimen/spacing_medium"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:text="Taylor W "
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                        android:textColor="#000"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
