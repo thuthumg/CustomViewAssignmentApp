@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#EFF3FC</color>
+    <color name="colorPrimaryDark">#FEFFFF</color>
+    <color name="colorPrimaryLight">#AEB6CA</color>
+    <color name="colorAccent">#2CC09C</color>
+    <color name="colorSecondaryText">#4B587A</color>
+    <color name="tv_count_color">#34466A</color>
+
+    <!-- Main Screen-->
+
+    <color name="action_bar_title_color">#4B587A</color>
+    <color name="in_progress_button_bg_color">#F26950</color>
+    <color name="in_progress_circle_bg_color">#FAD0C4</color>
+    <color name="main_screen_page_title_color">#162A54</color>
+    <color name="main_screen_page_sub_title_color">#C3C9D5</color>
+    <color name="main_screen_page_task_list_bg_color">#EFF3FC</color>
+    <color name="main_screen_page_task_list_title_color">#AEB6CA</color>
+    <color name="rv_item_title_txt_color">#37393A</color>
+    <color name="rv_item_count_txt_color">#34466A</color>
+    <color name="rv_item_done_status_txt_color">#7469D5</color>
+    
+    <!-- Profile Screen-->
+    <color name="profile_screen_btn_bg_color">@color/colorAccent</color>
+    <color name="profile_screen_tab_title_disable_color">#AFB4BE</color>
+
+    <!-- Create Task Screen-->
+    <color name="task_screen_bg_color">#33354E</color>
+</resources>
