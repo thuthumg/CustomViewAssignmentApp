@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal">
+<androidx.appcompat.widget.AppCompatTextView
+    android:layout_marginTop="-8dp"
+    android:layout_gravity="center"
+    android:text="12.23"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/spacing_small"
+    android:layout_marginLeft="@dimen/spacing_small"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:background="@color/whiteDark10" />
+
+    <ImageView
+        android:layout_width="@dimen/spacing_middle"
+        android:layout_height="@dimen/spacing_middle"
+        android:layout_marginTop="@dimen/spacing_large"
+        app:srcCompat="@drawable/shape_round_solid"
+        app:tint="#9CCC65" />
+
+</RelativeLayout>
+
+    <include
+        android:id="@+id/viewPodTaskItem"
+        android:layout_marginLeft="@dimen/spacing_middle"
+        android:layout_marginTop="@dimen/spacing_middle"
+        android:layout_marginRight="@dimen/spacing_middle"
+        android:layout_marginBottom="@dimen/spacing_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/view_pod_task_item"/>
+
+<!--<androidx.cardview.widget.CardView-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginLeft="@dimen/spacing_middle"-->
+<!--    android:layout_marginTop="@dimen/spacing_middle"-->
+<!--    android:layout_marginRight="@dimen/spacing_middle"-->
+<!--    android:layout_marginBottom="@dimen/spacing_medium"-->
+<!--    android:visibility="visible"-->
+<!--    app:cardCornerRadius="2dp"-->
+<!--    app:cardElevation="1dp">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="@dimen/spacing_large"-->
+<!--            android:layout_marginTop="@dimen/spacing_large"-->
+<!--            android:layout_marginRight="@dimen/spacing_large"-->
+<!--            android:layout_marginBottom="@dimen/spacing_medium"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:text="Taylor W "-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Caption"-->
+<!--                android:textColor="#000"-->
+<!--                android:textStyle="bold" />-->
+
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
+
+<!--</androidx.cardview.widget.CardView>-->
+</LinearLayout>

@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.padcmyanmar.ttm.customviewassignmentapp.R
 import com.padcmyanmar.ttm.customviewassignmentapp.adapters.ProfileImageListAdapter
+import com.padcmyanmar.ttm.customviewassignmentapp.adapters.TasksListAdapter
 import com.padcmyanmar.ttm.customviewassignmentapp.views.components.OverlapDecoration
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var mProfileImageListAdapter: ProfileImageListAdapter
+    lateinit var mTasksListAdapter: TasksListAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +23,16 @@ class MainActivity : AppCompatActivity() {
 
         setUpToolbar()
         setUpProfileRecyclerView()
+        setUpTasksRecyclerView()
 
     }
+
+    private fun setUpTasksRecyclerView() {
+        mTasksListAdapter = TasksListAdapter()
+        rvTaskLists.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
+        rvTaskLists.adapter = mTasksListAdapter
+    }
+
     private fun setUpProfileRecyclerView() {
         mProfileImageListAdapter = ProfileImageListAdapter()
         rvProfileImageList.addItemDecoration(OverlapDecoration())
