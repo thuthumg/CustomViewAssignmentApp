@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFEBEE"
+    style="?attr/bottomSheetStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight = "@dimen/margin_medium_3"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PADC Myanmar"
+        android:textSize="24sp"
+        android:textColor="@color/teal_200"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"/>
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="8dp"
+        android:layout_below="@+id/tvHeader"
+        android:src="@drawable/profile_sample"/>
+
+</RelativeLayout>
