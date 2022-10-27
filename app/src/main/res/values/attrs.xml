@@ -25,4 +25,5 @@
 
     </declare-styleable>
 
+<!--    <attr name="actionBarSize" format="integer"/>-->
 </resources>

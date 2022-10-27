@@ -1,23 +1,22 @@
 package com.padcmyanmar.ttm.customviewassignmentapp.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.padcmyanmar.ttm.customviewassignmentapp.ProfileScreenFragment
 import com.padcmyanmar.ttm.customviewassignmentapp.R
 import com.padcmyanmar.ttm.customviewassignmentapp.adapters.ProfileImageListAdapter
 import com.padcmyanmar.ttm.customviewassignmentapp.adapters.TasksListAdapter
 import com.padcmyanmar.ttm.customviewassignmentapp.delegates.ProfileImageDelegate
 import com.padcmyanmar.ttm.customviewassignmentapp.views.components.OverlapDecoration
+import com.padcmyanmar.ttm.customviewassignmentapp.views.viewpods.TaskDataViewPod
+import com.padcmyanmar.ttm.customviewassignmentapp.views.viewpods.TaskItemViewPod
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() , ProfileImageDelegate {
 
     lateinit var mProfileImageListAdapter: ProfileImageListAdapter
-   // lateinit var mTasksListAdapter: TasksListAdapter
+    lateinit var mTaskDataViewPod: TaskDataViewPod
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,17 +25,22 @@ class MainActivity : AppCompatActivity() , ProfileImageDelegate {
 
         setUpToolbar()
         setUpProfileRecyclerView()
-       // setUpTasksRecyclerView()
+        setUpTasksViewPod()
+
+
 
 
     }
 
 
-//    private fun setUpTasksRecyclerView() {
+    private fun setUpTasksViewPod() {
 //        mTasksListAdapter = TasksListAdapter(this)
 //        rvTaskLists.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
 //        rvTaskLists.adapter = mTasksListAdapter
-//    }
+
+        mTaskDataViewPod = vpTaskListData as TaskDataViewPod
+        mTaskDataViewPod.mDelegate = this
+    }
 
     private fun setUpProfileRecyclerView() {
         mProfileImageListAdapter = ProfileImageListAdapter(false,this)
@@ -57,22 +61,11 @@ class MainActivity : AppCompatActivity() , ProfileImageDelegate {
     }
 
     override fun goToProfilePage() {
-        setUpBottomSheet()
-    }
+      //  setUpBottomSheet()
 
-
-    private fun setUpBottomSheet() {
-        val sheet = BottomSheetBehavior.from(bottomSheet)
-        Log.d("main","check state $sheet.state ${BottomSheetBehavior.STATE_EXPANDED}")
-
-        when{
-            sheet.state != BottomSheetBehavior.STATE_EXPANDED ->{
-                sheet.state = BottomSheetBehavior.STATE_EXPANDED
-            }else ->{
-            sheet.state = BottomSheetBehavior.STATE_COLLAPSED
+        ProfileScreenFragment().apply {
+            show(supportFragmentManager,tag)
         }
-        }
+     }
 
-
-    }
 }

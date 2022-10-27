@@ -22,7 +22,7 @@ class TasksItemViewHolder (itemView: View, private val mDelegate: ProfileImageDe
     }
 
     private fun setUpViewPods() {
-        mTaskListItemViewPod = itemView.viewPodTaskItem as TaskItemViewPod
+      //  mTaskListItemViewPod = itemView.viewPodTaskItem as TaskItemViewPod
         mTaskListItemViewPod.setDelegate(mDelegate)
       //  mTaskListItemViewPod.setUpProfileRecyclerView()
 

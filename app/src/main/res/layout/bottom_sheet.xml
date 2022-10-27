@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#FF344655"
@@ -12,32 +12,40 @@
 
     <androidx.appcompat.widget.AppCompatImageView
 
-        android:id="@+id/ivCancel"
+        android:id="@+id/ivClose"
         android:layout_margin="@dimen/margin_medium"
-        android:layout_alignParentEnd="true"
+        android:layout_gravity="end"
         android:src="@drawable/ic_close_24"
         android:layout_width="35dp"
         android:layout_height="35dp"/>
-    <RelativeLayout
 
-        android:id="@+id/rlProfileData"
-        android:layout_below="@id/ivCancel"
+<!--    <RelativeLayout-->
+
+<!--        android:id="@+id/rlProfileData"-->
+<!--        android:layout_below="@id/ivCancel"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--       -->
+<!--       -->
+<!--       -->
+
+<!--    </RelativeLayout>-->
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="175dp">
         <LinearLayout
             android:orientation="vertical"
             android:background="@drawable/custom_card_bg"
             android:layout_marginTop="@dimen/margin_xlarge"
             android:layout_width="match_parent"
-            android:layout_height="125dp">
-
-
+            android:layout_height="match_parent">
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatTextView
-                   android:textColor="@color/profile_screen_tab_title_disable_color"
+                    android:textColor="@color/profile_screen_tab_title_disable_color"
                     android:textStyle="bold"
                     android:textSize="@dimen/text_regular"
                     android:layout_weight="1"
@@ -99,12 +107,11 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
-
-
         </LinearLayout>
+
         <FrameLayout
+            android:layout_gravity="center_horizontal"
             android:id="@+id/frameProfile"
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <com.padcmyanmar.ttm.customviewassignmentapp.views.components.CircleImageView
@@ -128,17 +135,15 @@
                 app:srcCompat="@drawable/shape_round_solid_border" />
         </FrameLayout>
         <LinearLayout
-            android:layout_marginBottom="@dimen/margin_medium"
-            android:layout_marginTop="@dimen/margin_medium"
             android:background="@color/white"
             android:orientation="vertical"
             android:gravity="center_horizontal"
-            android:layout_below="@id/frameProfile"
+            android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <androidx.appcompat.widget.AppCompatTextView
-               android:textSize="@dimen/text_regular_3x"
-               android:textStyle="bold"
+                android:textSize="@dimen/text_regular_3x"
+                android:textStyle="bold"
                 android:textColor="@color/main_screen_page_title_color"
                 android:text="Zachary Butler"
                 android:layout_width="wrap_content"
@@ -152,28 +157,79 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
-
-
-
-
-    </RelativeLayout>
-
+    </FrameLayout>
 
     <LinearLayout
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/margin_medium"
         android:background="@color/white"
-        android:layout_below="@id/rlProfileData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <androidx.appcompat.widget.AppCompatImageButton
+        <androidx.appcompat.widget.AppCompatImageView
+
+            android:elevation="@dimen/margin_small"
+            android:background="@drawable/share_list_btn_bg"
+            android:layout_margin="@dimen/margin_medium"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:src="@drawable/ic_share_32"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="@drawable/message_btn_bg"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_regular_2x"
+            android:text="MESSAGE"
             android:src="@color/white"
-            android:layout_width="10dp"
-            android:layout_height="10dp"/>
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_gravity="center"
+            android:elevation="@dimen/margin_small"
+            android:background="@drawable/share_list_btn_bg"
+            android:layout_margin="@dimen/margin_medium"
+            android:textColor="@color/white"
+            android:src="@drawable/ic_check_32"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
     </LinearLayout>
 
 
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/colorAccent"
+        app:tabTextColor="@color/profile_screen_tab_title_disable_color" />
+
+
+    <!-- Genre-->
+
+    <FrameLayout
+        android:id="@+id/flTaskList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:paddingTop="@dimen/margin_medium_3"
+        android:paddingBottom="@dimen/margin_large">
+
+        <include
+            android:id="@+id/vpTaskList"
+            layout="@layout/view_pod_task_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
 
 
 
 
-</RelativeLayout>
+
+
+
+</LinearLayout>
