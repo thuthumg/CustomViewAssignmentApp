@@ -1,58 +1,56 @@
 package com.padcmyanmar.ttm.customviewassignmentapp.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.padcmyanmar.ttm.customviewassignmentapp.ProfileScreenFragment
+import androidx.lifecycle.ViewModelProvider
+import com.padcmyanmar.ttm.customviewassignmentapp.fragments.ProfileScreenFragment
 import com.padcmyanmar.ttm.customviewassignmentapp.R
-import com.padcmyanmar.ttm.customviewassignmentapp.adapters.ProfileImageListAdapter
-import com.padcmyanmar.ttm.customviewassignmentapp.adapters.TasksListAdapter
-import com.padcmyanmar.ttm.customviewassignmentapp.delegates.ProfileImageDelegate
-import com.padcmyanmar.ttm.customviewassignmentapp.views.components.OverlapDecoration
+import com.padcmyanmar.ttm.customviewassignmentapp.mvp.presenters.MainPresenter
+import com.padcmyanmar.ttm.customviewassignmentapp.mvp.presenters.MainPresenterImpl
+import com.padcmyanmar.ttm.customviewassignmentapp.mvp.views.MainView
+import com.padcmyanmar.ttm.customviewassignmentapp.views.viewpods.ProfileListViewPod
 import com.padcmyanmar.ttm.customviewassignmentapp.views.viewpods.TaskDataViewPod
-import com.padcmyanmar.ttm.customviewassignmentapp.views.viewpods.TaskItemViewPod
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() , ProfileImageDelegate {
+class MainActivity : AppCompatActivity() , MainView {
 
-    lateinit var mProfileImageListAdapter: ProfileImageListAdapter
+    //View Pods
     lateinit var mTaskDataViewPod: TaskDataViewPod
+    lateinit var mProfileListViewPod: ProfileListViewPod
+
+
+    //Presenter
+    private lateinit var mPresenter: MainPresenter
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setUpPresenter()
 
         setUpToolbar()
-        setUpProfileRecyclerView()
+        setUpProfileListViewPod()
         setUpTasksViewPod()
 
-
-
-
+        mPresenter.onUiReady()
     }
 
+    private fun setUpPresenter() {
+        mPresenter = ViewModelProvider(this)[MainPresenterImpl::class.java]
+        mPresenter.initView(this)
+    }
 
     private fun setUpTasksViewPod() {
-//        mTasksListAdapter = TasksListAdapter(this)
-//        rvTaskLists.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
-//        rvTaskLists.adapter = mTasksListAdapter
-
         mTaskDataViewPod = vpTaskListData as TaskDataViewPod
-        mTaskDataViewPod.mDelegate = this
+        mTaskDataViewPod.setUpTaskListViewPod(mPresenter)
     }
 
-    private fun setUpProfileRecyclerView() {
-        mProfileImageListAdapter = ProfileImageListAdapter(false,this)
-        rvProfileImageList.addItemDecoration(OverlapDecoration())
-     val  layoutManager =
-         LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
-       // layoutManager.orientation = HORIZONTAL
-      //  layoutManager.reverseLayout = true
-      //  layoutManager.stackFromEnd = true
-        rvProfileImageList.layoutManager = layoutManager
-        rvProfileImageList.adapter = mProfileImageListAdapter
-    }
+    private fun setUpProfileListViewPod() {
+        mProfileListViewPod = vpProfileLists as ProfileListViewPod
+        mProfileListViewPod.setProfileListViewPod(mPresenter,false)
+       }
 
     private fun setUpToolbar() {
         setSupportActionBar(toolBar)
@@ -60,12 +58,14 @@ class MainActivity : AppCompatActivity() , ProfileImageDelegate {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24) // add leading icon
     }
 
-    override fun goToProfilePage() {
-      //  setUpBottomSheet()
-
+    override fun navigateToProfileScreen() {
         ProfileScreenFragment().apply {
             show(supportFragmentManager,tag)
         }
-     }
+    }
+
+    override fun navigateToCreateTaskScreen() {
+        startActivity(TaskScreenActivity.newIntent(this))
+    }
 
 }

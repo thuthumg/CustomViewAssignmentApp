@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CustomViewAssignmentApp</string>
+
+    <string-array name="tasks">
+        <item>Awsmd Team</item>
+        <item>Mobile Team</item>
+        <item>Contact Team</item>
+        <item>Sale Team</item>
+    </string-array>
+
 </resources>

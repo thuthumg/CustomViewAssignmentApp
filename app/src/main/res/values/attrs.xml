@@ -25,5 +25,14 @@
 
     </declare-styleable>
 
-<!--    <attr name="actionBarSize" format="integer"/>-->
+    <declare-styleable name="CustomLineProgressView">
+        <attr name="indicatorHeight" format="dimension"/>
+        <attr name="indicatorThickness" format="dimension"/>
+        <attr name="reachedColor" format="color"/>
+        <attr name="notReachedColor" format="color"/>
+        <attr name="unfilledSectionColor" format="color"/>
+        <attr name="barThickness" format="dimension"/>
+    </declare-styleable>
+
+
 </resources>

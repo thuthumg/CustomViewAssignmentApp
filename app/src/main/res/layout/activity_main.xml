@@ -66,17 +66,15 @@
             android:layout_marginTop="@dimen/margin_medium"
             android:orientation="horizontal">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvProfileImageList"
+            <!-- Profile List-->
+            <include
+               android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:clipToPadding="false"
-                tools:itemCount="4"
-                tools:listitem="@layout/view_holder_profile_image"
-                tools:orientation="horizontal" />
+                android:id="@+id/vpProfileLists"
+                layout="@layout/view_pod_profile_list"
+                android:layout_height="wrap_content" />
 
+            <!--Custom Progress Bar-->
             <com.padcmyanmar.ttm.customviewassignmentapp.views.components.CustomCircularProgressView
                 android:id="@+id/circularProgressBar"
                 android:layout_width="70dp"
@@ -98,6 +96,7 @@
 
         </LinearLayout>
 
+        <!-- Task List-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -115,7 +114,7 @@
                     android:layout_height="wrap_content"
                     android:descendantFocusability="blocksDescendants"
                     android:orientation="vertical">
-
+                    <!-- Tasks List title-->
                     <LinearLayout
 
                         android:layout_width="match_parent"
@@ -166,6 +165,7 @@
                         </RelativeLayout>
 
                     </LinearLayout>
+                    <!--  Tasks List Data-->
                     <include
                         android:id="@+id/vpTaskListData"
                         layout="@layout/view_pod_task_data"
@@ -492,6 +492,6 @@
 
     </LinearLayout>
 
-    <include android:id="@+id/bottomSheet"
-        layout="@layout/bottom_sheet"/>
+<!--    <include android:id="@+id/bottomSheet"-->
+<!--        layout="@layout/bottom_sheet"/>-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

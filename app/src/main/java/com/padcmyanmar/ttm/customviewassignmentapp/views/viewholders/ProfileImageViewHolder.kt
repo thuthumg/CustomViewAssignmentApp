@@ -6,7 +6,7 @@ import com.padcmyanmar.ttm.customviewassignmentapp.R
 import com.padcmyanmar.ttm.customviewassignmentapp.delegates.ProfileImageDelegate
 import kotlinx.android.synthetic.main.view_holder_profile_image.view.*
 
-class ProfileImageViewHolder(itemView: View,var mDelegate: ProfileImageDelegate) : RecyclerView.ViewHolder(itemView) {
+class ProfileImageViewHolder(itemView: View,var mDelegate: ProfileImageDelegate) : BaseViewHolder(itemView,mDelegate) {
 
 
     init {
@@ -15,24 +15,4 @@ class ProfileImageViewHolder(itemView: View,var mDelegate: ProfileImageDelegate)
         }
     }
 
-   fun bindViewData(
-       positionId: Int,
-       itemCountData: Int,
-       checkTaskListItem: Boolean
-   ){
-
-       if(!checkTaskListItem)
-       {
-           if(positionId == itemCountData-1)
-           {
-               itemView.civProfile.setImageDrawable(itemView.resources
-                   .getDrawable(R.drawable.ic_baseline_add_24))
-           }else{
-               itemView.civProfile.setImageDrawable(itemView.resources
-                   .getDrawable(R.drawable.profile_sample))
-           }
-       }
-
-
-   }
 }

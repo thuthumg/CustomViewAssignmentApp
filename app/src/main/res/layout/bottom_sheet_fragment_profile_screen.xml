@@ -2,36 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#FF344655"
-    style="?attr/bottomSheetStyle"
+    android:backgroundTint="@android:color/transparent"
+    android:background="#00000000"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:behavior_hideable="false"
-    app:behavior_peekHeight = "@dimen/margin_medium_3"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight = "10dp"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
     <androidx.appcompat.widget.AppCompatImageView
-
         android:id="@+id/ivClose"
+        android:elevation="@dimen/margin_small"
+        android:background="@drawable/attachment_icon_btn_bg"
         android:layout_margin="@dimen/margin_medium"
         android:layout_gravity="end"
-        android:src="@drawable/ic_close_24"
-        android:layout_width="35dp"
-        android:layout_height="35dp"/>
-
-<!--    <RelativeLayout-->
-
-<!--        android:id="@+id/rlProfileData"-->
-<!--        android:layout_below="@id/ivCancel"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-<!--       -->
-<!--       -->
-<!--       -->
-
-<!--    </RelativeLayout>-->
+        android:textColor="@color/white"
+        android:src="@drawable/ic_baseline_close_24"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
 
     <FrameLayout
+
         android:layout_width="match_parent"
         android:layout_height="175dp">
         <LinearLayout
@@ -209,7 +200,6 @@
         app:tabTextColor="@color/profile_screen_tab_title_disable_color" />
 
 
-    <!-- Genre-->
 
     <FrameLayout
         android:id="@+id/flTaskList"
@@ -221,7 +211,7 @@
 
         <include
             android:id="@+id/vpTaskList"
-            layout="@layout/view_pod_task_item"
+            layout="@layout/view_pod_task_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </FrameLayout>
