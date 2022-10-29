@@ -8,21 +8,30 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.DialogFragment.STYLE_NORMAL
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.tabs.TabLayout
 import com.padcmyanmar.ttm.customviewassignmentapp.R
 import com.padcmyanmar.ttm.customviewassignmentapp.delegates.ProfileImageDelegate
+import com.padcmyanmar.ttm.customviewassignmentapp.mvp.presenters.ProfileScreenPresenter
+import com.padcmyanmar.ttm.customviewassignmentapp.mvp.presenters.ProfileScreenPresenterImpl
+import com.padcmyanmar.ttm.customviewassignmentapp.mvp.views.ProfileScreenView
 import com.padcmyanmar.ttm.customviewassignmentapp.views.viewpods.TaskDataViewPod
 import kotlinx.android.synthetic.main.bottom_sheet_fragment_profile_screen.view.*
 
 
-class ProfileScreenFragment  : BottomSheetDialogFragment() , ProfileImageDelegate {
+class ProfileScreenFragment  : BottomSheetDialogFragment() , ProfileScreenView {
 
     private lateinit var bottomSheet: ViewGroup
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<*>
+    private var tabLayout:TabLayout? = null
+    private var  ivClose:AppCompatImageView? = null
 
     private lateinit var mViewPodTaskData: TaskDataViewPod
+
+    //Presenter
+    private lateinit var mPresenter: ProfileScreenPresenter
 
     override fun onStart() {
         super.onStart()
@@ -31,7 +40,7 @@ class ProfileScreenFragment  : BottomSheetDialogFragment() , ProfileImageDelegat
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         // SETUP YOUR BEHAVIOR HERE
         bottomSheetBehavior.peekHeight = BottomSheetBehavior.PEEK_HEIGHT_AUTO
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
     }
 
     override fun onCreateView(
@@ -40,39 +49,51 @@ class ProfileScreenFragment  : BottomSheetDialogFragment() , ProfileImageDelegat
         savedInstanceState: Bundle?
     ): View? {
         val myview: View = inflater.inflate(R.layout.bottom_sheet_fragment_profile_screen, container, false)
+        tabLayout = myview.findViewById(R.id.tabLayout)
+        ivClose = myview.findViewById(R.id.ivClose)
 
-        // SETUP THE VIEWPAGER AND THE TABLAYOUT HERE
+        setUpPresenter()
 
-        val tabLayout = myview.findViewById<TabLayout>(R.id.tabLayout)
-        val ivClose = myview.findViewById<AppCompatImageView>(R.id.ivClose)
 
-        ivClose.setOnClickListener {
-            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-        }
         setUpTasksViewPod(myview)
         setUpTabLayout(tabLayout = tabLayout)
+        setUpClickListener()
 
-        tabLayout.tabGravity = TabLayout.GRAVITY_FILL
 
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        mPresenter.onUiReady()
+
+        return myview
+    }
+
+    private fun setUpClickListener() {
+        ivClose?.setOnClickListener {
+            mPresenter.closeProfilePage()
+        }
+        tabLayout?.tabGravity = TabLayout.GRAVITY_FILL
+
+        tabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
-        setStyle(STYLE_NORMAL,R.style.MyTransparentBottomSheetDialogTheme)
-        return myview
+       // setStyle(STYLE_NORMAL,R.style.MyTransparentBottomSheetDialogTheme)
     }
 
-    private fun setUpTabLayout(tabLayout: TabLayout) {
+    private fun setUpPresenter() {
+       mPresenter = ViewModelProvider(this)[ProfileScreenPresenterImpl::class.java]
+        mPresenter.initView(this)
+    }
+
+    private fun setUpTabLayout(tabLayout: TabLayout?) {
 
         val taskListArray: Array<String> = arrayOf("Project Tasks", "Contacts", "About you")
 
         taskListArray.forEach {
-            tabLayout.newTab().apply {
+            tabLayout?.newTab()?.apply {
                 text = it
-                tabLayout.addTab(this)
+                tabLayout?.addTab(this)
 
             }
 
@@ -82,14 +103,17 @@ class ProfileScreenFragment  : BottomSheetDialogFragment() , ProfileImageDelegat
 
     private fun setUpTasksViewPod(myview: View) {
         mViewPodTaskData = myview.vpTaskList as TaskDataViewPod
-        mViewPodTaskData.setUpTaskListViewPod(this)
+        mViewPodTaskData.setUpTaskListViewPod(mPresenter)
     }
 
-    override fun goToProfilePage() {
-       onStart()
+
+
+    override fun navigateToProfileScreen() {
+        onStart()
     }
 
-    override fun goToCreateTaskPage() {
+    override fun closeProfileScreen() {
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN;
 
     }
 }

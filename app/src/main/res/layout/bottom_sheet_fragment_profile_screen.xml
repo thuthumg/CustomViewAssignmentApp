@@ -1,192 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:backgroundTint="@android:color/transparent"
-    android:background="#00000000"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00000000"
+    android:backgroundTint="@android:color/transparent"
+    android:orientation="vertical"
     app:behavior_hideable="true"
-    app:behavior_peekHeight = "10dp"
+    app:behavior_peekHeight="10dp"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivClose"
-        android:elevation="@dimen/margin_small"
-        android:background="@drawable/attachment_icon_btn_bg"
-        android:layout_margin="@dimen/margin_medium"
-        android:layout_gravity="end"
-        android:textColor="@color/white"
-        android:src="@drawable/ic_baseline_close_24"
         android:layout_width="50dp"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/margin_medium"
+        android:background="@drawable/attachment_icon_btn_bg"
+        android:elevation="@dimen/margin_small"
+        android:src="@drawable/ic_baseline_close_24"
+        android:textColor="@color/white" />
 
     <FrameLayout
 
         android:layout_width="match_parent"
         android:layout_height="175dp">
+
         <LinearLayout
-            android:orientation="vertical"
-            android:background="@drawable/custom_card_bg"
-            android:layout_marginTop="@dimen/margin_xlarge"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            android:background="@drawable/custom_card_bg"
+            android:orientation="vertical">
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:textColor="@color/profile_screen_tab_title_disable_color"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_regular"
+                    android:id="@+id/tvClosedTasks"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/tvClosedTasks"
                     android:padding="@dimen/margin_medium"
                     android:text="Closed tasks"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    android:textColor="@color/profile_screen_tab_title_disable_color"
+                    android:textSize="@dimen/text_regular"
+                    android:textStyle="bold" />
+
                 <View
-                    android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"/>
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
                 <androidx.appcompat.widget.AppCompatTextView
 
-                    android:textColor="@color/profile_screen_tab_title_disable_color"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_regular"
+                    android:id="@+id/tvOpenTasks"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/tvOpenTasks"
                     android:padding="@dimen/margin_medium"
                     android:text="Open tasks"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:textStyle="bold"
-                    android:textColor="@color/main_screen_page_title_color"
+                    android:textColor="@color/profile_screen_tab_title_disable_color"
                     android:textSize="@dimen/text_regular"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvClosedTasksCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/tvClosedTasksCount"
                     android:paddingLeft="@dimen/margin_medium"
                     android:paddingRight="@dimen/margin_medium"
                     android:text="361"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
-                <View
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"/>
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:textStyle="bold"
                     android:textColor="@color/main_screen_page_title_color"
                     android:textSize="@dimen/text_regular"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvOpenTasksCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:paddingLeft="@dimen/margin_medium"
                     android:paddingRight="@dimen/margin_medium"
-                    android:id="@+id/tvOpenTasksCount"
-
                     android:text="3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+
+                    android:textColor="@color/main_screen_page_title_color"
+                    android:textSize="@dimen/text_regular"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>
 
         <FrameLayout
-            android:layout_gravity="center_horizontal"
             android:id="@+id/frameProfile"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
             <com.padcmyanmar.ttm.customviewassignmentapp.views.components.CircleImageView
-                android:background="@drawable/image_shadow"
-                app:cornerRadius="100dp"
                 android:id="@+id/civProfile"
-                app:borderWidth="5dp"
-                app:strokeColor="@color/white"
-                android:src="@drawable/profile_sample"
-                android:scaleType="centerCrop"
                 android:layout_width="125dp"
-                android:layout_height="125dp"/>
+                android:layout_height="125dp"
+                android:background="@drawable/image_shadow"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_sample"
+                app:borderWidth="5dp"
+                app:cornerRadius="100dp"
+                app:strokeColor="@color/white" />
 
             <ImageView
-                android:layout_marginEnd="2dp"
-                android:layout_marginTop="@dimen/margin_xlarge"
-                android:layout_gravity="center|end"
                 android:id="@+id/ivDot"
                 android:layout_width="@dimen/spacing_mlarge"
                 android:layout_height="@dimen/spacing_mlarge"
+                android:layout_gravity="center|end"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:layout_marginEnd="2dp"
                 app:srcCompat="@drawable/shape_round_solid_border" />
         </FrameLayout>
+
         <LinearLayout
-            android:background="@color/white"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:layout_gravity="bottom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
             <androidx.appcompat.widget.AppCompatTextView
-                android:textSize="@dimen/text_regular_3x"
-                android:textStyle="bold"
-                android:textColor="@color/main_screen_page_title_color"
-                android:text="Zachary Butler"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Zachary Butler"
+                android:textColor="@color/main_screen_page_title_color"
+                android:textSize="@dimen/text_regular_3x"
+                android:textStyle="bold" />
+
             <androidx.appcompat.widget.AppCompatTextView
 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UI Designer"
                 android:textColor="@color/profile_screen_tab_title_disable_color"
                 android:textSize="@dimen/text_regular"
-                android:textStyle="bold"
-                android:text="UI Designer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </FrameLayout>
 
     <LinearLayout
-        android:gravity="center_horizontal"
-        android:paddingTop="@dimen/margin_medium"
-        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/margin_medium">
+
         <androidx.appcompat.widget.AppCompatImageView
 
-            android:elevation="@dimen/margin_small"
-            android:background="@drawable/share_list_btn_bg"
-            android:layout_margin="@dimen/margin_medium"
-            android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:src="@drawable/ic_share_32"
             android:layout_width="50dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="@drawable/share_list_btn_bg"
+            android:elevation="@dimen/margin_small"
+            android:src="@drawable/ic_share_32"
+            android:textColor="@color/white" />
+
         <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin_medium"
             android:background="@drawable/message_btn_bg"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_regular_2x"
-            android:text="MESSAGE"
             android:src="@color/white"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"/>
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_gravity="center"
-            android:elevation="@dimen/margin_small"
-            android:background="@drawable/share_list_btn_bg"
-            android:layout_margin="@dimen/margin_medium"
+            android:text="MESSAGE"
             android:textColor="@color/white"
-            android:src="@drawable/ic_check_32"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
-    </LinearLayout>
+            android:textSize="@dimen/text_regular_2x" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="@drawable/share_list_btn_bg"
+            android:elevation="@dimen/margin_small"
+            android:src="@drawable/ic_check_32"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
 
     <com.google.android.material.tabs.TabLayout
@@ -198,7 +213,6 @@
         app:tabMode="scrollable"
         app:tabSelectedTextColor="@color/colorAccent"
         app:tabTextColor="@color/profile_screen_tab_title_disable_color" />
-
 
 
     <FrameLayout
@@ -215,11 +229,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </FrameLayout>
-
-
-
-
-
-
 
 </LinearLayout>

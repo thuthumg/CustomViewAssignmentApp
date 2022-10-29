@@ -68,11 +68,11 @@
 
             <!-- Profile List-->
             <include
-               android:layout_weight="1"
-                android:layout_width="0dp"
                 android:id="@+id/vpProfileLists"
                 layout="@layout/view_pod_profile_list"
-                android:layout_height="wrap_content" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <!--Custom Progress Bar-->
             <com.padcmyanmar.ttm.customviewassignmentapp.views.components.CustomCircularProgressView
@@ -103,6 +103,7 @@
             android:layout_marginTop="@dimen/margin_medium"
             android:background="@drawable/task_list_segment_bg"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,48 +121,52 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <androidx.appcompat.widget.AppCompatTextView
-                            android:textColor="@color/main_screen_page_task_list_title_color"
-                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_margin="@dimen/margin_medium"
                             android:text="Data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textColor="@color/main_screen_page_task_list_title_color"
+                            android:textStyle="bold" />
 
 
                         <RelativeLayout
 
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/spacing_middle"
                             android:layout_marginRight="@dimen/spacing_middle"
                             android:layout_marginBottom="@dimen/spacing_medium"
-                            android:visibility="visible"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:visibility="visible">
+
                             <androidx.appcompat.widget.AppCompatTextView
-                                android:textColor="@color/main_screen_page_task_list_title_color"
-                                android:textStyle="bold"
-                                android:layout_margin="@dimen/margin_medium"
-                                android:layout_alignParentStart="true"
                                 android:id="@+id/lblTasks"
-                                android:text="Tasks"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_margin="@dimen/margin_medium"
+                                android:text="Tasks"
+                                android:textColor="@color/main_screen_page_task_list_title_color"
+                                android:textStyle="bold" />
+
                             <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/lblShowInDays"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/margin_medium"
                                 android:layout_toStartOf="@id/ivShowInDaysArrow"
-                                android:textColor="@color/main_screen_page_task_list_title_color"
-                                android:textStyle="bold"
-                                android:id="@+id/lblShowInDays"
                                 android:text="Show in days"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                android:textColor="@color/main_screen_page_task_list_title_color"
+                                android:textStyle="bold" />
+
                             <androidx.appcompat.widget.AppCompatImageView
-                                android:layout_margin="@dimen/margin_medium"
-                                android:layout_alignParentEnd="true"
                                 android:id="@+id/ivShowInDaysArrow"
-                                android:src="@drawable/ic_baseline_arrow_drop_down_24"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_margin="@dimen/margin_medium"
+                                android:src="@drawable/ic_baseline_arrow_drop_down_24" />
                         </RelativeLayout>
 
                     </LinearLayout>
@@ -171,327 +176,14 @@
                         layout="@layout/view_pod_task_data"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
-<!--                    <androidx.recyclerview.widget.RecyclerView-->
-<!--                        android:id="@+id/rvTaskLists"-->
-<!--                        tools:orientation="vertical"-->
-<!--                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--                        tools:itemCount="3"-->
-<!--                        tools:listitem="@layout/view_holder_tasks_list"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="horizontal">-->
-<!--                        <androidx.appcompat.widget.AppCompatTextView-->
-<!--                            android:layout_marginTop="-8dp"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:text="12.23"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"/>-->
-<!--                        <RelativeLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:layout_marginStart="@dimen/spacing_small"-->
-<!--                            android:layout_marginLeft="@dimen/spacing_small"-->
-<!--                            android:gravity="center_horizontal"-->
-<!--                            android:orientation="vertical">-->
-
-
-
-<!--                            <View-->
-<!--                                android:layout_width="1dp"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:layout_centerHorizontal="true"-->
-<!--                                android:background="@color/whiteDark10" />-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="@dimen/spacing_middle"-->
-<!--                                android:layout_height="@dimen/spacing_middle"-->
-<!--                                android:layout_marginTop="@dimen/spacing_large"-->
-<!--                                app:srcCompat="@drawable/shape_round_solid"-->
-<!--                                app:tint="#9CCC65" />-->
-
-<!--                        </RelativeLayout>-->
-
-<!--                        <androidx.cardview.widget.CardView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginLeft="@dimen/spacing_middle"-->
-<!--                            android:layout_marginTop="@dimen/spacing_middle"-->
-<!--                            android:layout_marginRight="@dimen/spacing_middle"-->
-<!--                            android:layout_marginBottom="@dimen/spacing_medium"-->
-<!--                            android:visibility="visible"-->
-<!--                            app:cardCornerRadius="2dp"-->
-<!--                            app:cardElevation="1dp">-->
-
-<!--                            <LinearLayout-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:orientation="vertical">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_marginLeft="@dimen/spacing_large"-->
-<!--                                    android:layout_marginTop="@dimen/spacing_large"-->
-<!--                                    android:layout_marginRight="@dimen/spacing_large"-->
-<!--                                    android:layout_marginBottom="@dimen/spacing_medium"-->
-<!--                                    android:gravity="center_vertical"-->
-<!--                                    android:orientation="horizontal">-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="match_parent"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:gravity="center_vertical"-->
-<!--                                        android:text="Taylor W "-->
-<!--                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"-->
-<!--                                        android:textColor="#000"-->
-<!--                                        android:textStyle="bold" />-->
-
-<!--                                </LinearLayout>-->
-
-<!--                            </LinearLayout>-->
-
-<!--                        </androidx.cardview.widget.CardView>-->
-<!--                    </LinearLayout>-->
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="horizontal">-->
-<!--                        <androidx.appcompat.widget.AppCompatTextView-->
-<!--                            android:layout_marginTop="-8dp"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:text="12.23"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"/>-->
-<!--                        <RelativeLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:layout_marginStart="@dimen/spacing_small"-->
-<!--                            android:layout_marginLeft="@dimen/spacing_small"-->
-<!--                            android:gravity="center_horizontal"-->
-<!--                            android:orientation="vertical">-->
-
-<!--                            <View-->
-<!--                                android:layout_width="1dp"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:layout_centerHorizontal="true"-->
-<!--                                android:background="@color/whiteDark10" />-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="@dimen/spacing_middle"-->
-<!--                                android:layout_height="@dimen/spacing_middle"-->
-<!--                                android:layout_marginTop="@dimen/spacing_large"-->
-<!--                                app:srcCompat="@drawable/shape_round_solid"-->
-<!--                                app:tint="#29B6F6" />-->
-
-<!--                        </RelativeLayout>-->
-
-<!--                        <androidx.cardview.widget.CardView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginLeft="@dimen/spacing_middle"-->
-<!--                            android:layout_marginTop="@dimen/spacing_middle"-->
-<!--                            android:layout_marginRight="@dimen/spacing_middle"-->
-<!--                            android:layout_marginBottom="@dimen/spacing_medium"-->
-<!--                            android:visibility="visible"-->
-<!--                            app:cardCornerRadius="2dp"-->
-<!--                            app:cardElevation="1dp">-->
-
-<!--                            <LinearLayout-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:orientation="vertical">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_marginLeft="@dimen/spacing_large"-->
-<!--                                    android:layout_marginTop="@dimen/spacing_large"-->
-<!--                                    android:layout_marginRight="@dimen/spacing_large"-->
-<!--                                    android:layout_marginBottom="@dimen/spacing_medium"-->
-<!--                                    android:gravity="center_vertical"-->
-<!--                                    android:orientation="horizontal">-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="match_parent"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:gravity="center_vertical"-->
-<!--                                        android:text="Taylor W "-->
-<!--                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"-->
-<!--                                        android:textColor="#000"-->
-<!--                                        android:textStyle="bold" />-->
-
-<!--                                </LinearLayout>-->
-
-<!--                            </LinearLayout>-->
-
-<!--                        </androidx.cardview.widget.CardView>-->
-<!--                    </LinearLayout>-->
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="horizontal">-->
-<!--                        <androidx.appcompat.widget.AppCompatTextView-->
-<!--                            android:layout_marginTop="-8dp"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:text="12.23"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"/>-->
-<!--                        <RelativeLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:layout_marginStart="@dimen/spacing_small"-->
-<!--                            android:layout_marginLeft="@dimen/spacing_small"-->
-<!--                            android:gravity="center_horizontal"-->
-<!--                            android:orientation="vertical">-->
-
-<!--                            <View-->
-<!--                                android:layout_width="1dp"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:layout_centerHorizontal="true"-->
-<!--                                android:background="@color/whiteDark10" />-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="@dimen/spacing_middle"-->
-<!--                                android:layout_height="@dimen/spacing_middle"-->
-<!--                                android:layout_marginTop="@dimen/spacing_large"-->
-<!--                                app:srcCompat="@drawable/shape_round_solid"-->
-<!--                                app:tint="#FF4081" />-->
-
-<!--                        </RelativeLayout>-->
-
-<!--                        <androidx.cardview.widget.CardView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginLeft="@dimen/spacing_middle"-->
-<!--                            android:layout_marginTop="@dimen/spacing_middle"-->
-<!--                            android:layout_marginRight="@dimen/spacing_middle"-->
-<!--                            android:layout_marginBottom="@dimen/spacing_medium"-->
-<!--                            android:visibility="visible"-->
-<!--                            app:cardCornerRadius="2dp"-->
-<!--                            app:cardElevation="1dp">-->
-
-<!--                            <LinearLayout-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:orientation="vertical">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_marginLeft="@dimen/spacing_large"-->
-<!--                                    android:layout_marginTop="@dimen/spacing_large"-->
-<!--                                    android:layout_marginRight="@dimen/spacing_large"-->
-<!--                                    android:layout_marginBottom="@dimen/spacing_medium"-->
-<!--                                    android:gravity="center_vertical"-->
-<!--                                    android:orientation="horizontal">-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="match_parent"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:gravity="center_vertical"-->
-<!--                                        android:text="Taylor W "-->
-<!--                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"-->
-<!--                                        android:textColor="#000"-->
-<!--                                        android:textStyle="bold" />-->
-
-<!--                                </LinearLayout>-->
-
-<!--                            </LinearLayout>-->
-
-<!--                        </androidx.cardview.widget.CardView>-->
-<!--                    </LinearLayout>-->
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="horizontal">-->
-<!--                        <androidx.appcompat.widget.AppCompatTextView-->
-<!--                            android:layout_marginTop="-8dp"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:text="12.23"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"/>-->
-<!--                        <RelativeLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:layout_marginStart="@dimen/spacing_small"-->
-<!--                            android:layout_marginLeft="@dimen/spacing_small"-->
-<!--                            android:gravity="center_horizontal"-->
-<!--                            android:orientation="vertical">-->
-
-<!--                            <View-->
-<!--                                android:layout_width="1dp"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:layout_centerHorizontal="true"-->
-<!--                                android:background="@color/whiteDark10" />-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="@dimen/spacing_middle"-->
-<!--                                android:layout_height="@dimen/spacing_middle"-->
-<!--                                android:layout_marginTop="@dimen/spacing_large"-->
-<!--                                app:srcCompat="@drawable/shape_round_solid"-->
-<!--                                app:tint="#F57F17" />-->
-
-<!--                        </RelativeLayout>-->
-
-<!--                        <androidx.cardview.widget.CardView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginLeft="@dimen/spacing_middle"-->
-<!--                            android:layout_marginTop="@dimen/spacing_middle"-->
-<!--                            android:layout_marginRight="@dimen/spacing_middle"-->
-<!--                            android:layout_marginBottom="@dimen/spacing_medium"-->
-<!--                            android:visibility="visible"-->
-<!--                            app:cardCornerRadius="2dp"-->
-<!--                            app:cardElevation="1dp">-->
-
-<!--                            <LinearLayout-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:orientation="vertical">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_marginLeft="@dimen/spacing_large"-->
-<!--                                    android:layout_marginTop="@dimen/spacing_large"-->
-<!--                                    android:layout_marginRight="@dimen/spacing_large"-->
-<!--                                    android:layout_marginBottom="@dimen/spacing_medium"-->
-<!--                                    android:gravity="center_vertical"-->
-<!--                                    android:orientation="horizontal">-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="match_parent"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:gravity="center_vertical"-->
-<!--                                        android:text="Taylor W "-->
-<!--                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"-->
-<!--                                        android:textColor="#000"-->
-<!--                                        android:textStyle="bold" />-->
-
-<!--                                </LinearLayout>-->
-
-<!--                            </LinearLayout>-->
-
-<!--                        </androidx.cardview.widget.CardView>-->
-<!--                    </LinearLayout>-->
 
                 </LinearLayout>
 
             </LinearLayout>
 
 
-
         </LinearLayout>
 
     </LinearLayout>
 
-<!--    <include android:id="@+id/bottomSheet"-->
-<!--        layout="@layout/bottom_sheet"/>-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,7 +4,6 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.padcmyanmar.ttm.customviewassignmentapp.delegates.ProfileImageDelegate
 import com.padcmyanmar.ttm.customviewassignmentapp.views.viewpods.ProfileListViewPod
-import com.padcmyanmar.ttm.customviewassignmentapp.views.viewpods.TaskItemViewPod
 import kotlinx.android.synthetic.main.view_holder_tasks_list.view.*
 
 

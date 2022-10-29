@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.padcmyanmar.ttm.customviewassignmentapp.views.viewpods.ProfileListViewPod xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="wrap_content">
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_centerInParent="true"
         android:id="@+id/rvProfileImageList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_gravity="center_vertical"
         android:clipToPadding="false"
         tools:itemCount="4"

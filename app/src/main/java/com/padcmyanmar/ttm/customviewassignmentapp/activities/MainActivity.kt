@@ -1,6 +1,5 @@
 package com.padcmyanmar.ttm.customviewassignmentapp.activities
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -55,7 +54,7 @@ class MainActivity : AppCompatActivity() , MainView {
     private fun setUpToolbar() {
         setSupportActionBar(toolBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true) // to show leading icon
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24) // add leading icon
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_gray_24) // add leading icon
     }
 
     override fun navigateToProfileScreen() {

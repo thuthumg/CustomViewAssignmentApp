@@ -40,16 +40,6 @@
 
     </RelativeLayout>
 
-    <!--    <include-->
-    <!--        android:id="@+id/viewPodTaskItem"-->
-    <!--        android:layout_marginLeft="@dimen/spacing_middle"-->
-    <!--        android:layout_marginTop="@dimen/spacing_middle"-->
-    <!--        android:layout_marginRight="@dimen/spacing_middle"-->
-    <!--        android:layout_marginBottom="@dimen/spacing_medium"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        layout="@layout/view_pod_task_item"/>-->
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,13 +98,13 @@
                 android:textStyle="bold" />
 
             <RelativeLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/spacing_large"
                 android:layout_marginTop="@dimen/spacing_medium"
                 android:layout_marginRight="@dimen/spacing_large"
-                android:layout_marginBottom="@dimen/spacing_medium">
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatImageView
 
@@ -144,10 +134,9 @@
                     android:layout_height="15dp"
                     android:layout_alignBaseline="@id/vpProfileLists"
                     android:layout_centerVertical="true"
-
                     android:layout_marginStart="@dimen/margin_medium"
                     android:layout_toEndOf="@id/tvMessageCount"
-                    android:src="@drawable/ic_attachment_24" />
+                    android:src="@drawable/ic_attachment_32" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvAttachCount"
@@ -188,14 +177,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
-                <!--                <androidx.recyclerview.widget.RecyclerView-->
 
-                <!--                    tools:listitem="@layout/view_holder_profile_image"-->
-                <!--                    android:layout_alignParentEnd="true"-->
-                <!--                    android:id="@+id/rvProfileImage"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"/>-->
-                <!--                -->
             </RelativeLayout>
 
         </LinearLayout>
